@@ -12,3 +12,17 @@
 # Input: intervals = [[1,4],[4,5]]
 # Output: [[1,5]]
 # Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+
+
+def merge(intervals):
+    intervals.sort(key=lambda x:x[0])
+    stack = []
+    
+    for i in range(0, len(intervals)):
+        if stack and stack[-1][1] >= intervals[i][0]:
+            stack[-1][1] = max(stack[-1][1], intervals[i][1])
+        else:
+            stack.append(intervals[i])
+    
+    return stack
+    
