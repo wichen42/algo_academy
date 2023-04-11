@@ -20,3 +20,16 @@
 # Output: 3
 # Explanation: The answer is "wke", with the length of 3.
 # Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+def lengthOfLongestSubstring(self, s):
+    window = set()
+    left, right, max_length = 0, 0, 0
+    
+    while (right < len(s)):
+        window.discard(s[left])
+        left += 1
+    max_length = max(max_length, right-left+1)
+    window.add(s[right])
+    right += 1
+    
+    return max_length
