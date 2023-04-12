@@ -27,4 +27,19 @@
 # Output: 23
 
 
- 
+def minEatingSpeed(piles, h):
+    left, right = 1, max(piles)
+    
+    while left < right:
+        k = (left + right)//2
+        hours = 0
+    
+        for pile in piles:
+            hours += math.ceil((pile / k))
+        
+        if hours > h:
+            left = k+1
+        else:
+            right = k
+            
+    return left
