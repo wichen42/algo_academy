@@ -34,3 +34,16 @@ def mergeTwoLists(l1, l2):
         tail.next = l2
     
     return dummy.next
+
+def recursiveMergeTwoLists(l1, l2):
+    if l1 == None: return l2
+    if l2 == None: return l1
+    
+    if l1.val < l2.val:
+        next1 = list1.next
+        l1.next = self.recursiveMergeTwoLists(next1, l2)
+        return l1
+    else:
+        next2 = l2.next
+        l2.next = self.recursiveMergeTwoLists(l1, next2)
+        return l2
