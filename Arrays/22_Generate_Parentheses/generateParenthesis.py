@@ -8,3 +8,24 @@
 # Output: ["()"]
  
 
+def generateParentheses(n):
+    stack = []
+    res = []
+    
+    def _backtrack(open, close):
+        if open == close == n:
+            res.append("".join(stack))
+            return
+        
+        if open < n:
+            stack.append("(")
+            _backtrack(open+1, close)
+            stack.pop()
+        
+        if close < open:
+            stack.append(")")
+            _backtrack(open, close+1)
+            stack.pop()
+        
+        _backtrack(0,0)
+        return res
