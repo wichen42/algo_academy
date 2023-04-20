@@ -21,4 +21,12 @@
  
  def climbStairs(n):
      
+    def countSteps(m, memo={}):
+        if m in memo: return memo[m]
+        if m <= 2: return m
+        
+        memo[m] = countSteps(m-1, memo) + countSteps(m-2, memo)
+        return memo[m]
     
+    res = countSteps(n, {})
+    return res
