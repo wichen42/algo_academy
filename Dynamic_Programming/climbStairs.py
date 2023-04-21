@@ -19,8 +19,8 @@
 # 2. 1 step + 2 steps
 # 3. 2 steps + 1 step
  
- def climbStairs(n):
-     
+def climbStairs(n):
+    
     def countSteps(m, memo={}):
         if m in memo: return memo[m]
         if m <= 2: return m
